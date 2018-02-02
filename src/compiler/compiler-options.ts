@@ -4,8 +4,11 @@ export interface CompilerOptions {
     logger:Logger;
     expectHTML:boolean;
     shouldKeepComment:boolean;
-    isUnaryTag?:Function;
-    canBeLeftOpenTag?:Function;
+    shouldDecodeNewlinesForHref:boolean;
+    shouldDecodeNewlines:boolean;
+    isUnaryTag?:(key: string) => boolean;
+    canBeLeftOpenTag?:(key: string) => boolean;
     start:Function;
     end:Function;
+    chars:Function;
 }
